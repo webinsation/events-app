@@ -1,0 +1,39 @@
+<!doctype html>
+
+<html lang="en" ng-app="EventApp">
+<head>
+  <title>App</title>
+  <script src="https://code.angularjs.org/1.2.9/angular.min.js"></script>
+  <script src="app.js"></script>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/events.css">
+</head>
+
+<body>
+<main class="container" ng-controller="EventCtrl">
+	<h1>I have {{events.length}} events scheduled. They are: </h1>
+	<br>
+	<label for="searchEvents">Search Events</label>
+	<input class="form-control" id="searchEvents" type="search" ng-model="q" placeholder="Filter events...">
+	<br><br>
+	<div class="cards-container">
+		<section class="card thumbnail animate-repeat" ng-repeat="event in events | filter:q">
+			<img src="http://placehold.it/242x180">
+			<h3>{{event.title}}</h2> 
+			<div class="event-date"><strong>Date:</strong> {{event.date}}</div>
+			<div class="event-location"><strong>Location:</strong> {{event.location}}</div>
+			<div class="event-attendees"><strong>Attendees:</strong> {{event.attendees}}</div>
+			<br>
+			<p><a class="btn btn-block btn-primary" role="button">Register</a></p>
+		</section>
+		<section class="animate-repeat" ng-if="results.length == 0">
+			<strong>No events found...</strong>
+		</section>
+		<section class="card thumbnail text-center">
+			<h3>Add New Event</h2> 
+			<br>
+			<p><a href="" ng-click="events.addEvent()" class="btn btn-block btn-success" role="button">Add Event</a></p>
+		</section>
+	</div>
+</main>
+</body>
