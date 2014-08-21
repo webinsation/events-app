@@ -32,7 +32,22 @@
 		<section class="card thumbnail text-center">
 			<h3>Add New Event</h2> 
 			<br>
-			<p><a href="" ng-click="events.addEvent()" class="btn btn-block btn-success" role="button">Add Event</a></p>
+			<p><a href="" ng-click="addEvent = true" class="btn btn-block btn-success" role="button">Add Event</a></p>
+			<form name="addEventForm" ng-show="addEvent" class="text-left" ng-submit="createEvent(event)">
+				<div class="form-group">
+					<label for="eventTitle">Event Title:</label>
+					<input ng-model="event.title" class="form-control" id="eventTitle" type="text" placeholder="Event Title" required>
+				</div>
+				<div class="form-group">
+					<label for="eventDate">Event Date:</label>
+					<input ng-model="event.date" class="form-control" id="eventDate" type="text" placeholder="Event Date" required>
+				</div>
+				<div class="form-group">
+					<label for="eventLocation">Event Location:</label>
+					<input ng-model="event.location" class="form-control" id="eventLocation" type="text" placeholder="Event Location" required>
+				</div>
+				<p><button type="submit" class="btn btn-block btn-success">Create Event</button></p>	
+			</form>
 		</section>
 	</div>
 </main>
