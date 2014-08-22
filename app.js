@@ -19,3 +19,15 @@ event.controller("EventCtrl", ['$scope','$http', function($scope, $http) {
     	$scope.event = defaultForm; 
     };
 }]);
+event.directive('mainHeader', function() {
+	return {
+		restrict: 'E',
+		templateUrl: '/partials/main-header.html'
+	}
+});
+event.directive('mainFooter', function() {
+	return {
+		restrict: 'E',
+		templateUrl: '/partials/main-footer.html'
+	}
+});
